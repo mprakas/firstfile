@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "a8beab41-896d-4d03-ae35-a6182f2b01aa",
+		"name": "Authorization",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "basicAuth",
+			"_postman_id": "feaa403f-5108-4616-80f1-3fcd99d259a3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "password",
+						"username": "postman"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "https://postman-echo.com/basic-auth"
+			},
+			"response": []
+		},
+		{
+			"name": "apiKeyAuth",
+			"_postman_id": "c1809cd9-6492-4f22-a123-235394bcdf7e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": {
+						"in": "query",
+						"value": "fe9c5cddb7e01d747b4611c3fc9eaf2c",
+						"key": "appid"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.openweathermap.org/data/2.5/forecast/daily?q=Delhi&cnt=1",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"forecast",
+						"daily"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "Delhi"
+						},
+						{
+							"key": "cnt",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bearerTokenAuth",
+			"_postman_id": "b96882dc-3dec-415e-b442-6a747aecb724",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "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"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "// Octokit.js\r\n// https://github.com/octokit/core.js#readme\r\nconst octokit = new Octokit({\r\n  auth: 'YOUR-TOKEN'\r\n})\r\n\r\nawait octokit.request('POST /user/repos', {\r\n  name: 'Hello-World',\r\n  description: 'This is your first repo!',\r\n  homepage: 'https://github.com',\r\n  'private': false,\r\n  is_template: true\r\n})",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://api.github.com/user/repos"
+			},
+			"response": []
+		}
+	]
+}
